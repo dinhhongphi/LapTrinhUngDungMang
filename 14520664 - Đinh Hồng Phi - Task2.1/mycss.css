@@ -1,0 +1,47 @@
+.navbar {
+	margin-bottom:0px;
+}
+.container-fluid{
+	background-color:#27E1D3;
+}
+
+.navbar-default a{
+	color:#F4F4F4 !important;
+}
+
+.nav .active2 {
+	background-color: #00cebf !important;
+}
+.nav li:hover, .nav-stacked li a:hover {
+	background-color:#29EFFF !important;
+}
+.nav-stacked li a:focus{
+	background-color: transparent !important;
+}
+.content > .col-md-3 {
+	background-color:#effffa;
+	padding:0px;
+}
+
+.nav-stacked {
+	padding-left:20px;
+	height:600px;
+	margin-top:50px;
+}
+
+.nav-stacked > li{
+	padding:0px;
+	text-align: left;
+}
+
+nav.navbar-default {
+	border:0px;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-stacked{
+		display: none;
+	}
+}
+
+
