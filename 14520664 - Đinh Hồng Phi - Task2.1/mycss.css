@@ -38,6 +38,11 @@ nav.navbar-default {
 	border:0px;
 }
 
+/*main-content*/
+.main-content{
+	padding:20px;
+}
+
 @media screen and (max-width: 768px) {
     .nav-stacked{
 		display: none;
