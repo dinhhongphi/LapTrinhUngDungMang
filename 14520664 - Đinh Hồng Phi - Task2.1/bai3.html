@@ -46,7 +46,97 @@
 			  </ul>
 		  </div>
 		  <div class="col-md-9 col-sm-9">
-				<div>sdfasdfasd</div>
+				<div class="main-content">
+					<h3>Tìm hiểu về hệ thống lưới (Grid System) của Bootstrap và so sánh hoạt động của hệ thống lưới này trên các thiết bị có kích thước màn hình khác nhau như Phones (<768px), Tablet( ≥768px), Desktop( ≥992px và ≥1200px).</h3>
+					<hr>
+					<ol>
+						<li><b>Giới thiệu hệ thống Grid System</b>
+							<p>Các hệ thống lưới được sử dụng để tạo ra bố cực cho các trang bằng các chuỗi hàng và cột chứa nội dung của bạn. Và dưới đây là cách hệ thống lưới của Bootstrap hoạt động:</p>
+							<ul>
+								<li>Các hàng được đặt bên trong một <code>.container</code> (fixed-width) hoặc <code>.container-fluid</code> (full-width) để căn chỉnh và thiết lập padding một cách thích hợp.</li>
+								<li>Sử dụng các hàng để tạo ra nhóm các cột theo hàng ngang.</li>
+								<li>Nội dung cần phải được đặt trong các cột, và chỉ có duy nhất các cột là phần tử con trực tiếp của các hàng.</li>
+								<li>Các class được định nghĩa trước như <code>.row</code> và <code>.col-xs-4</code> luôn sẵn có để dựng lên các bố cục lưới một cách nhanh nhất. Một số ít các mixin cũng được sử dụng để tạo ra các bố cục ngữ nghĩa.</li>
+								<li>Các cột tạo nên các gutter (khoảng trắng nằm giữa nội dung cột) bằng <code>padding</code>. Giá trị padding đó là độ lệch đối với cột đầu tiên và cột cuối cùng trong các hàng do giá trị margin âm trên các <code>.row</code>.</li>
+								<li>Các cột của lưới được tạo ra bằng cách chỉ định số các cột mà bạn muốn sử dụng trong tổng số 12 cột. Ví dụ, để tạo ra một bố cục với 3 cột có độ rộng bằng nhau, bạn hãy sử dụng 3 class <code>.col-xs-4</code>.</li>
+							</ul>
+						</li>
+						<li>
+							<b>Hoạt động của Grid System trên các thiết bị có kích thước màn hình khác nhau</b>
+							<table class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th></th>
+										<th>
+											Extra small devices
+											<small>Phones (&lt;768px)</small>
+										</th>
+										<th>
+											Small devices
+											<small>Tablets (≥768px)</small>
+										</th>
+										<th>
+											Medium devices
+											<small>Desktops (≥992px)</small>
+										</th>
+										<th>
+											Large devices
+											<small>Desktops (≥1200px)</small>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th>Grid behavior</th>
+										<td>Horizontal at all times</td>
+										<td colspan="3">Collapsed to start, horizontal above breakpoints</td>
+									</tr>
+									<tr>
+										<th>Container width</th>
+										<td>None (auto)</td>
+										<td>750px</td>
+										<td>970px</td>
+										<td>1170px</td>
+									</tr>
+									<tr>
+										<th>Class prefix</th>
+										<td><code>.col-xs-</code></td>
+										<td><code>.col-sm-</code></td>
+										<td><code>.col-md-</code></td>
+										<td><code>.col-lg-</code></td>
+									</tr>
+									<tr>
+										<th># of columns</th>
+										<td colspan="4">12</td>
+									</tr>
+									<tr>
+										<th>Column width</th>
+										<td class="text-muted">Auto</td>
+										<td>~62px</td>
+										<td>~81px</td>
+										<td>~97px</td>
+									</tr>
+									<tr>
+										<th>Gutter width</th>
+										<td colspan="4">30px (15px on each side of a column)</td>
+									</tr>
+									<tr>
+										<th>Nestable</th>
+										<td colspan="4">Yes</td>
+									</tr>
+									<tr>
+										<th>Offsets</th>
+										<td colspan="4">Yes</td>
+									</tr>
+									<tr>
+										<th>Column ordering</th>
+										<td colspan="4">Yes</td>
+									</tr>
+								</tbody>
+							</table>
+						</li>
+					</ol>
+				</div>
 		  </div>
 	 </div>
 	 <script src="bootstrap-3.3.7-dist/js/jquery-3.1.1.min.js"></script>

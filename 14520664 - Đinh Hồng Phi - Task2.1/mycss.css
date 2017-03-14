@@ -12,7 +12,7 @@
 .nav .active2 {
 	background-color: #00cebf !important;
 }
-.nav li:hover, .nav-stacked li a:hover {
+.nav li:hover,.nav-stacked li a:hover {
 	background-color:#29EFFF !important;
 }
 .nav-stacked li a:focus{
@@ -46,6 +46,10 @@ nav.navbar-default {
 @media screen and (max-width: 768px) {
     .nav-stacked{
 		display: none;
+	}
+	/*main-content*/
+	.main-content{
+		padding:0px;
 	}
 }
 

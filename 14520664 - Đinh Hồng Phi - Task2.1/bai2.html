@@ -46,7 +46,29 @@
 			  </ul>
 		  </div>
 		  <div class="col-md-9 col-sm-9">
-				<div>sdfasdfasd</div>
+				<div class="main-content">
+					<h3>
+						Responsive là gì? Làm thế nào nếu muốn vô hiệu hóa tính năng Responsive khi đang sử dụng Bootstrap?
+					</h3>
+					<hr>
+					<ol>
+						<li>
+							Responsive là: 
+							<p>
+								Responsive Web Design là kỹ thuật thiết kế web đáp ứng với nhiều kích cỡ giao diện trên nhiều thiết bị khác nhau. Đáp ứng nhiều kích cỡ ở đây có nghĩa là trên mọi thiết bị đều phải chạy toàn màn hình (full screen), không bị vỡ giao diện và ẩn mất đi một số vị trí nào và không phải sử dụng chức năng zoom để xem.
+							</p>
+						</li>
+						<li>
+							Cách vô hiệu hóa tính năng Responsive:
+							<ul>
+	<li>Hãy bỏ thẻ <code>&lt;meta&gt;</code> viewport đã được đề cập đến trong <a href="http://getbootstrap.com.vn/css/#overview-mobile">tài liệu CSS</a></li>
+	<li>Hãy ghi đè thuộc tính <code>width</code> trên <code>.container</code> đối với mỗi cột trong hệ thống lưới, ví dụ <code>width: 970px !important;</code> Hãy chắc chắn rằng, các mã CSS tùy biến này được tích hợp vào sau CSS mặc định của Bootstrap. Bạn cũng có thể tránh sử dụng <code>!important</code> bằng các media query hoặc một số selector-fu.</li>
+	<li>Nếu bạn sử dụng thanh điều hướng, hãy vô hiệu hóa toàn bộ các tính năng thu gọn và mở rộng trên thanh điều hướng đó.</li>
+	<li>Đối với các bố cục dạng lưới, hãy sử dụng class <code>.col-xs-*</code> bằng cách thêm vào hoặc thay thế cho các class medium/large. Đừng lo lắng, hệ thống lưới trên các thiết bị có màn hình siêu nhỏ sẽ tự động co giãn đối với mọi độ phân giải.</li>
+</ol>
+						</li>
+					</ul>
+				</div>
 		  </div>
 	 </div>
 	 <script src="bootstrap-3.3.7-dist/js/jquery-3.1.1.min.js"></script>
