@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 3.1</title>
+	<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/pygments-manni.css">
+	<link href="data:text/css;charset=utf-8," rel="stylesheet" data-href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" id="bs-theme-stylesheet">
+	<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/docs.css">
+</head>
+<body>
+	<div class="container" id="control">
+		<ul class="group">
+			<li class="g-item">
+				<button class="btn btn-primary" data-parent="control" type="button" data-toggle="collapse" data-target="#cau1" aria-expanded="false" aria-controls="collapseExample">
+				  Câu 1
+				</button>
+			</li>
+			<li class="g-item">
+				<button class="btn btn-primary" data-parent="control" type="button" data-toggle="collapse" data-target="#cau2" aria-expanded="false" aria-controls="collapseExample">
+				  Câu 2
+				</button>
+			</li>
+			<li class="g-item">
+				<button class="btn btn-primary" data-parent="control" type="button" data-toggle="collapse" data-target="#cau3" aria-expanded="false" aria-controls="collapseExample">
+				  Câu 3
+				</button>
+			</li>
+			<li class="g-item">
+				<button class="btn btn-primary" data-parent="control" type="button" data-toggle="collapse" data-target="#cau4" aria-expanded="false" aria-controls="collapseExample">
+				  Câu 4
+				</button>
+			</li>
+		</ul>
+	</div>
+	<div>
+		<div id="cau1" class="collapse" >
+			<div>
+				<h2>Có những cách đặt Javascript nào trong file html? Cho ví dụ minh họa.</h2>
+				<div>
+					<ul>
+						<li>
+							<p>Có 2 cách đặt javascript chính:</p>
+							<ul>
+								<li>Internal Javascript</li>
+								<li>External Javascript</li>
+							</ul>
+						</li>
+						<li>
+							<p>Internal Javascript</p>
+							<ul>
+								<li>
+									<p>Đặt trong thẻ Head</p>
+									<p>Example</p>
+									<figure class="highlight">
+										<pre>
+											<code>
+<span class="nt">&lt;head&gt;</span>
+	<span class="nt">&lt;script&gt;</span>
+		<span class="nt">function</span> myFunction() {
+		    document.getElementById(<span class="s1">"demo"</span>).innerHTML = <span class="s1">"Paragraph changed."</span>;
+		}
+	<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+											</code>
+										</pre>
+									</figure>
+								</li>
+								<li>
+									<p>Đặt trong thẻ Body</p>
+									<p>Example</p>
+									<figure class="highlight">
+										<pre>
+											<code>
+<span class="nt">&lt;body&gt;</span>
+	<span class="nt">&lt;script&gt;</span>
+		<span class="nt">function</span> myFunction() {
+		    document.getElementById(<span class="s1">"demo"</span>).innerHTML = <span class="s1">"Paragraph changed."</span>;
+		}
+	<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+											</code>
+										</pre>
+									</figure>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<p>External Javascript</p>
+							<ul>
+								<li>
+									<p>External file myjs.js</p>
+									<figure class="highlight">
+										<pre>
+											<code>
+<span class="nt">function</span> myFunction() {
+	document.getElementById(<span class="s1">"demo"</span>).innerHTML = <span class="s1">"Paragraph changed."</span>;
+}
+											</code>
+										</pre>
+									</figure>
+								</li>
+								<li>
+									<p>link js file to html file</p>
+									<figure class="highlight">
+										<pre>
+											<code>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">"myjs.js"</span><span class="nt">&gt;</span><span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+											</code>
+										</pre>
+									</figure>
+									<figure class="highlight">
+										<pre>
+											<code>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">"myjs.js"</span><span class="nt">&gt;</span><span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+											</code>
+										</pre>
+									</figure>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+
+			<button class="btn btn-primary" data-parent="cau1" type="button" data-toggle="collapse" data-target="#control" aria-expanded="false" aria-controls="collapseExample">
+			  Back
+			</button>
+		</div> <!--end cau1-->
+		<div id="cau2" class="collapse" >
+			<div>
+				<h2>Có thể hiển thị dữ liệu từ Javascript với những cách nào? Cho ví dụ minh họa.</h2>
+				<div>
+					<ul>
+						<li>
+							<p>Có 4 cách để hiển thị dữ liệu từ javascript:</p>
+							<ul>
+								<li>Viết dữ liệu vào bên trong một phần tử HTML. <b>innerHTML</b></li>
+								<li>Viết dữ liệu tới HTML output. <b>document.write()</b></li>
+								<li>Hiển thị dữ liệu với alert box. <b>window.alert()</b></li>
+								<li>Viết dữ liệu tới browser console. <b>console.log()</b></li>
+							</ul>
+						</li>
+						<li>
+							<p>Example</p>
+							<ul>
+								<li>
+									<p>Viết dữ liệu vào bên trong một phần tử HTML</p>
+									<figure class="highlight">
+										<pre>
+											<code>
+<span class="nt">&lt;!DOCTYPE</span> html<span class="nt">&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+<span class="nt">&lt;h1&gt;</span>My First Web Page<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span>My First Paragraph<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"demo"</span><span class="nt">&gt;&lt;/p&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+	document.getElementById("demo").innerHTML = 5 + 6;
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+										
+											</code>
+										</pre>
+									</figure>
+								</li>
+								<li>
+									<p>Viết dữ liệu tới HTML output</p>
+									<figure class="highlight">
+										<pre>
+											<code>
+<span class="nt">&lt;!DOCTYPE</span> html<span class="nt">&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+<span class="nt">&lt;h1&gt;</span>My First Web Page<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span>My First Paragraph<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+	document.write(5 + 6);
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+											</code>
+										</pre>
+									</figure>
+								</li>
+								<li>
+									<p>Hiển thị dữ liệu với alert box</p>
+									<figure class="highlight">
+										<pre>
+											<code>
+<span class="nt">&lt;!DOCTYPE</span> html<span class="nt">&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+<span class="nt">&lt;h1&gt;</span>My First Web Page<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span>My First Paragraph<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+	window.alert(5 + 6);
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+											</code>
+										</pre>
+									</figure>
+								</li>
+								<li>
+									<p>Viết dữ liệu tới browser console</p>
+									<figure class="highlight">
+										<pre>
+											<code>
+<span class="nt">&lt;!DOCTYPE</span> html<span class="nt">&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+
+<span class="nt">&lt;h1&gt;</span>My First Web Page<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span>My First Paragraph<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+	console.log(5 + 6);
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+											</code>
+										</pre>
+									</figure>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<button class="btn btn-primary" data-parent="cau2" type="button" data-toggle="collapse" data-target="#control" aria-expanded="false" aria-controls="collapseExample">
+			  Back
+			</button>
+		</div><!--end cau2-->
+		<div id="cau3" class="collapse" >
+			<div>
+				<h2>
+					Làm thế nào để truy xuất (lấy giá trị) 1 thẻ HTML bất kỳ theo ID, theo Class, theo Name, theo tên thẻ HTML và theo CSS Selector? Cho ví dụ minh họa.
+				</h2>
+				<div>
+					<p>Example</p>
+					<ul>
+						<li>
+							<p>Truy xuất đến một thẻ html bất kỳ theo ID</p>
+							<figure class="highlight">
+								<pre>
+<code class="language-js" data-lang="js">
+	<span class="nt">var</span> myElement = document.getElementById("intro");
+</code>	
+							</pre>	
+							</figure>
+						</li>
+						<li>
+							<p>Truy xuất đến một thẻ html bất kỳ theo class name</p>
+							<figure class="highlight">
+								<pre>
+<code>
+	<span class="nt">var</span> x = document.getElementsByClassName("intro");
+</code>									
+								</pre>
+							</figure>
+						</li>
+						<li>
+							<p>Truy xuất đến một thẻ htm bất kỳ theo Tag name</p>
+							<figure class="highlight">
+								<pre>
+<code>
+	<span class="nt">var</span> x = document.getElementsByTagName("p");
+</code>									
+								</pre>
+							</figure>
+						</li>
+						<li>
+							<p>Truy xuất đến một thẻ html bất kỳ bằng CSS Selectors</p>
+							<figure class="highlight">
+								<pre>
+<code>
+	<span class="nt">var</span> x = document.querySelectorAll("p.intro");
+</code>									
+								</pre>
+							</figure>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<button class="btn btn-primary" data-parent="cau3" type="button" data-toggle="collapse" data-target="#control" aria-expanded="false" aria-controls="collapseExample">
+			  Back
+			</button>
+		</div><!--end cau3-->
+		<div id="cau4" class="collapse" >
+			<div>
+				<h3>
+					<p>Xác định các lệnh Javascript tương ứng để thực hiện các yêu cầu sau:</p>
+					<ul>
+						<li>Hiển thị ngày tháng và thời gian hiện tại.</li>
+						<li>Thay đổi nội dung trong 1 thẻ HTML đang có</li>
+						<li>Hiển thị một số ngẫu nhiên (random) từ 1 đến 1000.</li>
+						<li>Cộng, trừ, nhân, chia, chia lấy phần dư.</li>
+					</ul>
+				</h3>
+				<div>
+					<ul>
+						<li>
+							<p>Hiển thị ngày tháng và thời gian hiện tại</p>
+							<div>
+								<button class="btn btn-primary" onclick="getDateNow()" type="button" data-toggle="collapse" data-target="#dateRun" aria-expanded="false" aria-controls="collapseExample">
+								  Show run
+								</button>
+								<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#dateCode" aria-expanded="false" aria-controls="collapseExample">
+								  Show Code
+								</button>
+							</div>
+							<div class="collapse" id="dateRun">
+								<p></p>
+								<script>
+									function getDateNow(){
+										var element = document.querySelectorAll('#dateRun > p')[0];
+										var date = new Date();
+										element.innerHTML = date;
+									}
+								</script>
+							</div>
+							<div class="collapse" id="dateCode">
+								<figure class="highlight">
+									<pre>
+										<code>
+<span class="nt">&lt;script&gt;</span>
+	<span class="na">function</span> getDateNow(){
+		<span class="na">var</span> element = document.querySelectorAll(<span class="s1">'#dateRun > p'</span>)[0];
+		<span class="na">var</span> date = <span class="na">new</span> Date();
+		element.innerHTML = date;
+	}
+<span class="nt">&lt;/script&gt;</span>
+										</code>
+									</pre>
+								</figure>
+							</div>
+						</li>
+						<li>
+							<p>Thay đổi nội dung trong một thẻ HTML đang có</p>
+							<div>
+								<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#ContentRun" aria-expanded="false" aria-controls="collapseExample">
+								  Show run
+								</button>
+								<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#ContentCode" aria-expanded="false" aria-controls="collapseExample">
+								  Show Code
+								</button>
+							</div>
+							<div class="collapse" id="ContentRun">
+								<p>This is the start: Hi. Tôi là Phi</p>
+								<button onclick="ChangeContent()">Change</button>
+								<button onclick="start()">Reset</button>
+								<script>
+									function start(){
+										var start = 'This is the start: Hi. Tôi là Phi';	
+										var element = document.querySelectorAll('#ContentRun > p')[0];
+										element.innerHTML = start;
+									}
+									function ChangeContent(){
+										var element = document.querySelectorAll('#ContentRun > p')[0];
+										element.innerHTML = "After change : Xin chào thế giới";
+									}
+								</script>
+							</div>
+							<div class="collapse" id="ContentCode">
+								<figure class="highlight">
+									<pre>
+										<code>
+<span class="c3">&lt;</span><span class="c1">p</span><span class="c3">&gt;</span>This is the start: Hi. Tôi là <Phispan class="c3">&lt;</Phispan><span class="c1">/p</span><span class="c3">&gt;</span>
+<span class="c3">&lt;</span><span class="c1">button</span> <span class="c2">onclick</span>=<span class="c3">"ChangeContent()"&gt;</span>Change<span class="c3">&lt;</span><span class="c1">/button</span><span class="c3">&gt;</span>
+<span class="c3">&lt;</span><span class="c1">button</span> <span class="c2">onclick</span>=<span class="c3">"start()"&gt;</span>Reset<span class="c3">&lt;</span><span class="c1">/button</span><span class="c3">&gt;</span>
+<span class="c3">&lt;</span><span class="c1">script</span><span class="c3">&gt;</span>
+	<span class="c3">function</span> start(){
+		<span class="c3">var</span> start = <span class="c1">'This is the start: Hi. Tôi là Phi'</span>;	
+		<span class="c3">var</span> element = document.querySelectorAll(<span class="c1">'#ContentRun > p'</span>)[<span class="c1">0</span>];
+		element.innerHTML = start;
+	}
+	<span class="c3">function</span> ChangeContent(){
+		var element = document.querySelectorAll(<span class="c1">'#ContentRun > p'</span>)[<span class="c1">0</span>];
+		element.innerHTML = <span class="c1">"After change : Xin chào thế giới"</span>;
+	}
+<span class="c3">&lt;</span><span class="c1">/script</span><span class="c3">&gt;</span>
+										</code>
+									</pre>
+								</figure>
+							</div>
+						</li>
+						<li>
+							<p>Hiển thị một số ngẫu nhiên (random) từ 1 đến 1000</p>
+							<div>
+								<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#randomRun" aria-expanded="false" aria-controls="collapseExample">
+								  Show run
+								</button>
+								<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#randomCode" aria-expanded="false" aria-controls="collapseExample">
+								  Show Code
+								</button>
+							</div>
+							<div class="collapse" id="randomRun">
+								<p>Value : 0</p>
+								<button onclick="random()">Random</button>
+								<script>
+									function random(){
+										var element = document.querySelectorAll('#randomRun > p')[0];
+										element.innerHTML = Math.floor(Math.random() * 1000);
+									}
+								</script>
+							</div>
+							<div class="collapse" id="randomCode">
+								<figure class="highlight">
+									<pre>
+										<code>
+<span class="c3">&lt;</span><span class="c1">p</span><span class="c3">&gt;</span>Value : 0<span class="c3">&lt;</span><span class="c1">/p</span><span class="c3">&gt;</span>
+<span class="c3">&lt;</span><span class="c1">button</span> <span class="c2">onclick</span>=<span class="c3">"random()"&gt;</span>Random<span class="c3">&lt;</span><span class="c1">/button</span><span class="c3">&gt;</span>
+<span class="c3">&lt;</span><span class="c1">script</span><span class="c3">&gt;</span>
+	<span class="c3">function</span> random(){
+		var element = document.querySelectorAll(<span class="c1">'#randomRun > p'</span>)[<span class="c1">0</span>];
+		element.innerHTML = Math.floor(Math.random() <span class="c1">*</span> 1000);
+	}
+<span class="c3">&lt;</span><span class="c1">/script</span><span class="c3">&gt;</span>
+										</code>
+									</pre>
+								</figure>
+							</div>
+						</li>
+						<li>
+							<p>Cộng, trừ, nhân, chia, chia lấy phần dư</p>
+							<div>
+								<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#mathRun" aria-expanded="false" aria-controls="collapseExample">
+								  Show run
+								</button>
+								<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#mathCode" aria-expanded="false" aria-controls="collapseExample">
+								  Show Code
+								</button>
+							</div>
+							<div class="collapse" id="mathRun">
+								<div class="form-group">
+									<label for="number1">Số thứ nhất</label>
+									<input type="text" class="form-control" id="number1">
+								</div>
+								<div class="form-group">
+									<label for="number2">Số thứ hai</label>
+									<input type="text" class="form-control" id="number2">
+								</div>
+								<div class="form-group">
+									<button class="btn btn-default" onclick="Cong()">Cộng</button>
+									<button class="btn btn-default" onclick="Tru()">Trừ</button>
+									<button class="btn btn-default" onclick="Nhan()">Nhân</button>
+									<button class="btn btn-default" onclick="Chia()">Chia</button>
+									<button class="btn btn-default" onclick="Du()">Lấy Phần dư</button>
+								</div>
+								<div class="form-group">
+									<label for="resultMath">Kết quả</label>
+									<input type="text" class="form-control" id="resultMath">
+								</div>
+								<script>
+									function Number1(){
+										return parseInt(document.getElementById('number1').value);
+									}
+									function Number2(){
+										return parseInt(document.getElementById('number2').value);
+									}
+									function Set(a){
+										document.getElementById('resultMath').value = a;
+									}
+									function Cong(){
+										
+										Set(Number1() + Number2());
+									}
+									function Tru(){
+										Set(Number1() - Number2());
+									}
+									function Nhan(){
+										Set(Number1() * Number2());
+									}
+									function Chia(){
+										Set(Number1() / Number2());
+									}
+									function Du(){
+										Set(Number1() % Number2());
+									}
+								</script>
+							</div>
+							<div class="collapse" id="mathCode">
+								<figure class="highlight">
+									<pre>
+										<code class="language-html" data-lang="html">
+&lt;div class="form-group"&gt;
+	&lt;label for="number1"&gt;Số thứ nhất&lt;/label&gt;
+	&lt;input type="text" class="form-control" id="number1"&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+	&lt;label for="number2"&gt;Số thứ hai&lt;/label&gt;
+	&lt;input type="text" class="form-control" id="number2"&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+	&lt;button class="btn btn-default" onclick="Cong()"&gt;Cộng&lt;/button&gt;
+	&lt;button class="btn btn-default" onclick="Tru()"&gt;Trừ&lt;/button&gt;
+	&lt;button class="btn btn-default" onclick="Nhan()"&gt;Nhân&lt;/button&gt;
+	&lt;button class="btn btn-default" onclick="Chia()"&gt;Chia&lt;/button&gt;
+	&lt;button class="btn btn-default" onclick="Du()"&gt;Lấy Phần dư&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+	&lt;label for="resultMath"&gt;Kết quả&lt;/label&gt;
+	&lt;input type="text" class="form-control" id="resultMath"&gt;
+&lt;/div&gt;
+&lt;script&gt;
+	function Number1(){
+		return parseInt(document.getElementById('number1').value);
+	}
+	function Number2(){
+		return parseInt(document.getElementById('number2').value);
+	}
+	function Set(a){
+		document.getElementById('resultMath').value = a;
+	}
+	function Cong(){
+		
+		Set(Number1() + Number2());
+	}
+	function Tru(){
+		Set(Number1() - Number2());
+	}
+	function Nhan(){
+		Set(Number1() * Number2());
+	}
+	function Chia(){
+		Set(Number1() / Number2());
+	}
+	function Du(){
+		Set(Number1() % Number2());
+	}
+&lt;/script&gt;
+										</code>
+									</pre>
+								</figure>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<button class="btn btn-primary" data-parent="cau4" type="button" data-toggle="collapse" data-target="#control" aria-expanded="false" aria-controls="collapseExample">
+			  Back
+			</button>
+		</div><!--end cau4-->
+	</div>
+	<script src="bootstrap-3.3.7-dist/js/jquery-3.2.0.min.js"></script>
+	<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+	<script>
+		$("button[data-parent]").click(function(){
+			var parent = '#'+ this.getAttribute('data-parent');
+			var clas = $(parent).attr('class');
+			if(clas.indexOf('collapse in') >= 0){
+				$(parent).removeClass('collapse in');
+				$(parent).addClass('collapse');
+			}else{
+				$(parent).addClass('collapse');
+			}
+		});
+	</script>
+</body>
+</html>
