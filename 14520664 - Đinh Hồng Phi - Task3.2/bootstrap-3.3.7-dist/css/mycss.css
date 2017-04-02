@@ -1,0 +1,41 @@
+body {
+    background-color: #3051F8;
+    color: white;
+}
+
+.group {
+	list-style:none;
+	text-align:center;
+	margin: 10px;
+}
+.group > .g-item{
+	margin:20px;
+}
+
+.btn-custom {
+    background-color: #E79E00;
+    box-shadow: 0px 5px 10px black;
+    color: white;
+    font-size: 25px;
+    width: 100px;
+}
+
+
+.btn-back {
+	position: fixed;
+	right:50px;
+	bottom: 10px;
+}
+
+.highlight {
+    background-color: white;
+}
+
+
+ul{
+    list-style:none;
+}
+
+.panel {
+    color:black;
+}
