@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,9 +9,203 @@
 </head>
 <body>
     <div class="container">
-
+        <div>
+            <div class="form-group">
+                <label for="name">Họ tên</label>
+                <input type="text" class="form-control" id="name" value="Đinh Hồng Phi" />
+            </div>
+            <div class="form-group">
+                <label for="name">Giới tính</label>
+                <select class="form-control" id="sex">
+                    <option selected value="nam">Nam</option>
+                    <option value="nu">Nữ</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name">Ngày sinh</label>
+                <input type="date" class="form-control" id="date" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit" onclick="submit()">Submit</button>
+            </div>
+        </div>
+        <div>
+            <p><i>Xin chào <span class="buoi"></span> <span class="danhxung"></span> <span class="hoten"></span></i></p>
+            <p><span class="danhxung"></span> đang ở tuổi <span class="tuoi"></span> và còn <span class="ngay"></span> ngày nữa sẽ đến sinh nhật lần thứ <span class="next"></span> của <span class="danhxung"></span></p>
+            <p><span class="ngay"></span> ngày <span class="gio"></span> giờ <span class="phut"></span> phút <span class="giay"></span> giây</p>
+        </div>
     </div>
+    <script>
 
+        var buoi = document.getElementsByClassName('buoi');
+        var hoten = document.getElementsByClassName('hoten');
+        var tuoi = document.getElementsByClassName('tuoi');
+        var next = document.getElementsByClassName('next');
+        var xungdanh = document.getElementsByClassName('danhxung');
+        var ngay = document.getElementsByClassName('ngay');
+        var gio = document.getElementsByClassName('gio');
+        var phut = document.getElementsByClassName('phut');
+        var giay = document.getElementsByClassName('giay');
+        var data;
+        var interval = null;
+        function submit() {
+            if (interval != null) {
+                window.clearInterval(interval);
+            }
+            data =
+                {
+                    ngay: 0,
+                    gio: 0,
+                    phut: 0,
+                    giay: 1
+                };
+            //xác định buổi trong ngày
+            
+            for (var i = 0; i < buoi.length; i++) {
+                buoi[i].innerText = getBuoi();
+            }
+
+            //xác định xưng danh
+            
+            var sex = document.getElementById('sex');
+            for (var i = 0; i < xungdanh.length; i++) {
+                xungdanh[i].innerText = GetDanhXung(sex.options[sex.selectedIndex].value);
+            }
+
+            //xác định họ tên
+            var name = document.getElementById('name').value;
+            
+            for (var i = 0; i < hoten.length; i++) {
+                hoten[i].innerText = name;
+            }
+
+            //xác định tuổi
+            var birthday = document.getElementById('date').value;
+            var old = getOld(birthday);
+            for (var i = 0; i < tuoi.length; i++) {
+                tuoi[i].innerText = old;
+            }
+            next[0].innerText = old + 1;
+            //xác định số ngày còn lại
+            interval = window.setInterval(TimeDown, 1000);
+            
+        }
+
+        function TimeDown() {
+            if ((data.ngay == 0) && (data.gio == 0)
+                && (data.phut == 0) && (data.giay == 1)) {
+                var birthday = document.getElementById('date').value;
+                data = getOldNext(birthday,data);
+            } else {
+                data.giay -= 1;
+                if (data.giay < 0) {
+                    data.giay = 59;
+                    data.phut -= 1;
+                    if (data.phut < 0) {
+                        data.phut = 59;
+                        data.gio -= 1;
+                        if (data.gio < 0) {
+                            data.gio = 23;
+                            data.ngay -= 1;
+                        }
+                    }
+                }
+            }
+            //Hiển thị dữ liệu
+            for (var i = 0; i < ngay.length; i++) {
+                ngay[i].innerText = data.ngay;
+            }
+            for (var i = 0; i < gio.length; i++) {
+                gio[i].innerText = data.gio;
+            }
+            for (var i = 0; i < phut.length; i++) {
+                phut[i].innerText = data.phut;
+            }
+            for (var i = 0; i < giay.length; i++) {
+                giay[i].innerText = data.giay;
+            }
+        }
+
+        function getOldNext(birthDay,data) {
+            if (typeof (birthday) != typeof (5)) {//chuyển kiểu về Date
+                birthDay = new Date(birthDay);
+            }
+            if (birthDay != null) { //chuyển thành công
+                var now = new Date(); 
+                birthDay.setYear(now.getFullYear());
+                if (now >= birthDay) {
+                    birthDay.setYear(birthDay.getFullYear() + 1);
+                }
+                while (!((now.getDate() == birthDay.getDate())
+                    && (now.getMonth() == birthDay.getMonth())
+                    && (now.getFullYear() == birthDay.getFullYear()))) { //cho now -> birthday
+                    if (now.getMonth() == birthDay.getMonth() && now.getFullYear() == birthDay.getFullYear()) { //nếu cùng tháng
+                        data.ngay += birthDay.getDate() - now.getDate();
+                        now.setDate(birthDay.getDate());
+                    } else { //không cùng tháng
+                        var dayOfMonth = getDayOfMonth(now.getMonth(), now.getFullYear());
+                        data.ngay += dayOfMonth - now.getDate() + 1;
+                        now.setDate(dayOfMonth + 1);
+                    }
+                }
+                data.ngay -= 1; //đi tới trước ngày sinh nhật
+                //tính khoảng thời gian từ thời điểm submit tới 00:00
+                now = new Date();
+                var giay = 23 * 3600 + 59 * 60 + 60;
+                giay -= now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
+                data.gio = Math.floor(giay / 3600);
+                giay = giay % 3600;
+                data.phut = Math.floor(giay / 60);
+                giay = giay % 60;
+                data.giay = giay;
+            }
+            return data;
+        }
+
+        //
+        //get day of month
+        //
+        function getDayOfMonth(month, year) {
+            var date = new Date();
+            date.setMonth(month + 1);
+            date.setFullYear(year);
+            date.setDate(0);
+            return date.getDate();
+        }
+
+        //
+        //trả về tuổi hiện tại của user
+        //
+        function getOld(birthDay) {
+            if (typeof (birthday) != typeof (5)) {
+                birthDay = new Date(birthDay);
+            }
+            if (birthDay != null) {
+                var now = new Date();
+                var old = now.getFullYear() - birthDay.getFullYear();
+                now.setYear(birthDay.getFullYear());
+                if (now < birthDay) {
+                    return old - 1;
+                }
+                return old;
+            }
+        }
+
+        function getBuoi() {
+            var buoi = ['buổi sáng', 'buổi trưa', 'buổi chiều', 'buổi tối'];
+            var now = new Date().getHours();
+            if (now >= 3 && now < 11) return buoi[0];
+            if (now >= 11 && now < 13) return buoi[1];
+            if (now >= 13 && now < 18) return buoi[2];
+            if ((now >= 18 && now <= 23) || (now >= 0 && now < 3)) return buoi[3];
+        }
+
+        function GetDanhXung(sex) {
+            if (sex == 'nam') return 'Anh';
+            if (sex == 'nu') return 'Chị';
+        }
+
+    </script>
     <script src="bootstrap-3.3.7-dist/js/jquery-3.2.0.min.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </body>
