@@ -1,0 +1,20 @@
+﻿extends ./layout
+block content
+  .container.col-md-6.col-md-offset-3
+    form(path="/users/signup",method="POST")
+      h1 Sign up
+      if data && data.type=='error'
+        .form-group
+          .alert.alert-danger= data.description
+      .form-group
+        label(for="email") Email
+        input(type="text",name="email")#email.form-control
+      .form-group
+        label(for="password") Password
+        input(type="password",name="password")#password.form-control
+      .form-group
+        label(for="cd-pass") Confirm Password
+        input(type="password",name="confirmPassword")#cf-pass.form-control
+      .form-group
+        button(type="submit").btn.btn-default Sign up
+      
