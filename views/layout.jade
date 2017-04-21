@@ -11,6 +11,28 @@ html(lang='en')
       if ENV_DEVELOPMENT
         script(src='http://localhost:35729/livereload.js')
   body
-    .nav  
-      p sdfasdf
+    block nav
+      nav.navbar.navbar-default
+        .container-fluid
+          .navbar-header
+            button(type="button",data-toggle="collapse",data-target="#bs-example-navbar-collapse-1",aria-expanded="false").navbar-toggle.collapsed
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand MyWeb
+          #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            ul.nav.navbar-nav.navbar-right
+              if UserAuth
+                li.dropdown
+                  a(href="#",data-toggle="dropdown",role="button",aria-haspopup="true",aria-expanded="false").dropdown-toggle= userInfo.email
+                    span.caret
+                  ul.dropdown-menu
+                    li
+                      a(href="/users/logout") Logout
+              else
+                li
+                  a(href="/users/signin") Sign in
     block content
+    script(src='/components/jquery/dist/jquery.min.js')
+    script(src='/components/bootstrap/dist/js/bootstrap.min.js')

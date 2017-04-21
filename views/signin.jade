@@ -1,4 +1,4 @@
-﻿extends ./layoutblock content  .container.col-md-6.col-md-offset-3    form(action="./signin",method="POST")      h1 Signin
+﻿extends layoutblock content  .container.col-md-6.col-md-offset-3    form(action="./signin",method="POST")      h1 Signin
       if data && data.type=='error'
         .form-group
           .alert.alert-danger= data.description      .form-group        label(for="email") Email        input(type="text",name="email").form-control#email
@@ -7,4 +7,4 @@
         input(type="password",name="password").form-control#pass
       .form-group
         button(type="submit").btn.btn-default Login
-        button.btn.btn-default.pull-right Sign up
+        a(href="./signup").btn.btn-link.pull-right Sign up

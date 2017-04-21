@@ -1,10 +1,14 @@
-var express = require('express');
+﻿var express = require('express');
 var router = express.Router();
+var base64 = require('base-64');
+var authenUser = require('../configfunction').authenUser;
 
 /* GET home page. */
-
-router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+router.get('/', authenUser, function (req, res) {
+    //get user's info
+    var cookie = req.cookies._UserAuth;
+    var email = JSON.parse(base64.decode(cookie));
+    return res.render('index', { title: 'Express', UserAuth: req.app.locals.UserAuth,userInfo :email});
 });
 
 module.exports = router;
