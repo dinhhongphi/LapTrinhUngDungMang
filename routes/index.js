@@ -8,7 +8,7 @@ router.get('/', authenUser, function (req, res) {
     //get user's info
     var cookie = req.cookies._UserAuth;
     var email = JSON.parse(base64.decode(cookie));
-    return res.render('index', { title: 'Express', UserAuth: req.app.locals.UserAuth,userInfo :email});
+    return res.render('index', { title: 'Index',userInfo :email});
 });
 
 module.exports = router;
