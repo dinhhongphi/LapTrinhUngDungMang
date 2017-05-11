@@ -1,9 +1,16 @@
 ﻿'use strict'
 var express = require('express');
-var base64 = require('base-64');
 var authenUser = require('../configfunction').authenUser;
 var router = express.Router();
+var db = require('../model/database');
 var userEntity = require('../model/user');
+
+//connect to databse 
+db.connect(function (err) {
+    if (err) {
+        throw err;
+    }
+})
 
 //form data return to client
 var data = { type: '', description: '' };
@@ -13,22 +20,37 @@ router.get('/signin', function (req, res) {
     res.render('signin', { title: "signin" });
 });
 
-
 /*POST handler user sign in*/
 router.post('/signin', function (req, res) {
     //authenticated user
-    userEntity.compare(req.body.email, req.body.password, function (err) {
+    userEntity.findOne({ email: req.body.email }, function (err, user) {
         if (err) {
-            //user doesn't exists
             data.type = 'error';
             data.description = err.description;
             return res.render('signin', { title: "signin", data: data });
-        } else {
-            res.locals.UserAuth = true;
-            res.cookie('_UserAuth', base64.encode('{"email":"' + req.body.email + '"}'));
-            return res.redirect('/');
         }
-    });
+        if (user == null) {
+            data.type = 'error';
+            data.description = "user don't exists";
+            return res.render('signin', { title: "signin", data: data });
+        }
+        user.comparePassword(req.body.password, function (err,isMatch) {
+            if (err) {
+                data.type = 'error';
+                data.description = err;
+                return res.render('signin', { title: "signin", data: data });
+            }
+            if (isMatch) {
+              res.locals.UserAuth = true;
+              res.cookie('_UserAuth', base64.encode('{"email":"' + req.body.email + '"}'));
+              return res.redirect('/');
+            } else {
+                data.type = 'error';
+                data.description = "Email or password don't match";
+                return res.render('signin', { title: "signin", data: data });
+            }
+        })
+    })
 });
 
 /*GET signup page*/
@@ -43,37 +65,40 @@ router.post('/signup', function (req, res) {
 
     if (regex.test(req.body.email)) {
         if (req.body.password === req.body.confirmPassword) {
-            userEntity.isExitst(req.body.email, function (err, isExists) {
+            userEntity.findOne({ email: req.body.email }, function (err,user) {
                 if (err) {
-                    //response error
+                    //response server error
                     data.type = 'error';
                     data.description = err.description;
                     return res.render('signup', { title: 'signup', data: data });
                 }
-                if (isExists) {//user exists
+                if (user == null) { //user don't exists
+                    //add user
+                    let newUser = new userEntity({ email: req.body.email, password: req.body.password })
+                    newUser.save(function (err) {
+                        if (err) {
+                            //response server error
+                            data.type = 'error';
+                            data.description = err.description;
+                            return res.render('signup', { title: 'signup', data: data });
+                        }
+                        res.locals.UserAuth = req.app.locals.UserAuth;
+                        return res.redirect('/');
+                    })
+                } else {
                     data.type = 'error';
                     data.description = 'Email exists';
                     return res.render('signup', { title: 'signup', data: data });
                 }
-                userEntity.save(req.body.email, req.body.password, function (err) {
-                    if (err) {
-                        //response error
-                        data.type = 'error';
-                        data.description = err.description;
-                        return res.render('signup', { title: 'signup', data: data });
-                    }
-                    res.locals.UserAuth = req.app.locals.UserAuth;
-                    return res.redirect('/');
-                });
-            });
+            })
         } else {
-            //response error
+            //response password don't match
             data.type = 'error';
             data.description = 'Mật khẩu không trùng khớp'
             return res.render('signup', { title: 'signup', data: data });
         }
     } else {
-        //response error
+        //response email don't format
         data.type = 'error';
         data.description = 'Email không đúng định dạng'
         return res.render('signup', { title: 'signup', data: data });
